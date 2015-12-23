@@ -2,7 +2,7 @@ DOTFILES=$HOME/dotfiles
 source $DOTFILES/antigen/antigen.zsh
 
 antigen bundle ssh-agent
-
+antigen bundle sublime
 antigen use oh-my-zsh
 
 antigen theme $DOTFILES/zsh/james.zsh-theme --no-local-clone
@@ -19,6 +19,14 @@ fi
 
 if [[ -d $HOME/Projects/sage-game-theory ]]; then
     export PATH=$PATH:~/Projects/sage-game-theory
+fi
+
+if which pyenv > /dev/null; then
+    eval "$(pyenv init -)";
+fi
+
+if which pyenv-virtualenv-init > /dev/null; then
+    eval "$(pyenv virtualenv-init -)";
 fi
 setopt AUTO_CD
 
