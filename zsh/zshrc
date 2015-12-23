@@ -1,7 +1,6 @@
 DOTFILES=$HOME/dotfiles
 source $DOTFILES/antigen/antigen.zsh
 
-antigen bundle ssh-agent
 antigen bundle sublime
 antigen use oh-my-zsh
 
@@ -9,9 +8,18 @@ antigen theme $DOTFILES/zsh/james.zsh-theme --no-local-clone
 
 DISABLE_CORRECTION="true"
 
-source $DOTFILES/tmuxinator/tmuxinator.zsh
+if [ "$(uname)" = "Darwin" ]; then
+	export EDITOR='sublime'
+	antigen bundle brew
+	antigen bundle osx
+	bindkey -e
+	bindkey '^[[1;9C' forward-word
+	bindkey '^[[1;9D' backward-word
+fi
 
-export EDITOR='atom'
+if [ "$(uname)" != "Darwin" ]; then
+	antigen bundle ssh-agent
+fi
 
 if [[ -d $HOME/Desktop/gambit ]]; then
     PATH=$PATH:$HOME/Desktop/gambit
