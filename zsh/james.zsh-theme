@@ -1,6 +1,6 @@
 autoload -U colors && colors
 
-PROMPT='%{$fg_bold[magenta]%}%D{%k:%M} %{$reset_color%} $(user_host) %{$fg[yellow]%}$(get_pwd) $(git_prompt_info)
+PROMPT='%{$fg_bold[magenta]%}%D{%k:%M} %{$reset_color%} $(user_host) $(virtualenv) %{$fg[yellow]%}$(get_pwd) $(git_prompt_info)
 %{$reset_color%}→ '
 
 # something I found to update the clock
@@ -22,6 +22,11 @@ function user_host() {
   echo $me
 }
 
+function virtualenv() {
+  if {echo $fpath | grep -q "plugins/virtualenv"}; then
+    echo "%{$fg[yellow]%}$(virtualenv_prompt_info)%{$reset_color%}"
+  fi
+}
 
 fuction git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
