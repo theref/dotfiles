@@ -1,6 +1,6 @@
 autoload -U colors && colors
 
-PROMPT='%{$fg_bold[magenta]%}%D{%k:%M} %{$reset_color%} $(user_host) $(virtualenv) %{$fg[yellow]%}$(get_pwd) $(git_prompt_info)
+PROMPT='$(clock) $(user_host) $(get_pwd) $(git_prompt_info) $(virtualenv)
 %{$reset_color%}→ '
 
 # something I found to update the clock
@@ -9,8 +9,12 @@ TRAPALRM() {
   zle reset-prompt
 }
 
+function clock() {
+  echo "%{$fg_bold[magenta]%}%D{%k:%M}%{$reset_color%}"
+}
+
 function get_pwd() {
-  echo "${PWD/$HOME/~}"
+  echo "%{$fg[yellow]%}${PWD/$HOME/~}%{$reset_color%}"
 }
 
 function user_host() {
@@ -24,7 +28,7 @@ function user_host() {
 
 function virtualenv() {
   if {echo $fpath | grep -q "plugins/virtualenv"}; then
-    echo "%{$fg[yellow]%}$(virtualenv_prompt_info)%{$reset_color%}"
+    echo "%{$fg[magenta]%}$(virtualenv_prompt_info)%{$reset_color%}"
   fi
 }
 
@@ -33,7 +37,7 @@ fuction git_prompt_info() {
   echo "$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
 
-ZSH_THEME_GIT_PROMPT_PREFIX="[git:"
-ZSH_THEME_GIT_PROMPT_SUFFIX="]%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}+"
+ZSH_THEME_GIT_PROMPT_PREFIX="git:"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}"
