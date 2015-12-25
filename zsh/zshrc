@@ -9,13 +9,23 @@ antigen theme $DOTFILES/zsh/james.zsh-theme --no-local-clone
 DISABLE_CORRECTION="true"
 
 if [ "$(uname)" = "Darwin" ]; then
-	export EDITOR='sublime'
+	export EDITOR="subl"
 	antigen bundle brew
 	antigen bundle osx
 	antigen bundle virtualenv
 	bindkey -e
 	bindkey '^[[1;9C' forward-word
 	bindkey '^[[1;9D' backward-word
+
+	# Mac OS X uses path_helper and /etc/paths.d to preload PATH, clear it out first
+    if [ -x /usr/libexec/path_helper ]; then
+        PATH=''
+    eval `/usr/libexec/path_helper -s`
+    fi
+
+    if [[ -d /Applications/Postgres.app/Contents/Versions/9.4/bin ]]; then
+        PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+    fi
 fi
 
 if [ "$(uname)" != "Darwin" ]; then

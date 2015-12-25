@@ -4,6 +4,7 @@
 [core]
 	excludesfile = /Users/Campbell/.gitignore_global
     mergeoptions = --no-edit
+	editor = subl
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
