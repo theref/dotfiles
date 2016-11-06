@@ -4,10 +4,10 @@
 [core]
 	excludesfile = /Users/Campbell/.gitignore_global
     mergeoptions = --no-edit
-	editor = subl
+	editor = subl -n -w
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -21,8 +21,8 @@
 	br = branch
 	ch = checkout
 	nb = checkout -b
-	mg = merge
 	ls = log --pretty=format:"%C(yellow)%h%C(green)%d\\ %Creset%s%C(blue)\\ [%cn]" --decorate
 	al = "!git config -l | grep alias | cut -c 7-"
+	amend = git add .; git commit --amend
 [color]
 	ui = true
