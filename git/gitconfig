@@ -17,7 +17,7 @@
 	helper = osxkeychain
 [alias]
 	st = status -s
-	cm = commit -a -m
+	cm = commit -a
 	br = branch
 	ch = checkout
 	nb = checkout -b
