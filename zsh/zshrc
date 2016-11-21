@@ -48,6 +48,9 @@ if which pyenv-virtualenv-init > /dev/null; then
 	eval "$(pyenv virtualenv-init -)";
 fi
 
+alias python=/Users/James/anaconda3/bin/python
+alias pip=/Users/James/anaconda3/bin/pip
+
 setopt AUTO_CD
 
 antigen apply
