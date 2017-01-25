@@ -1,6 +1,6 @@
 autoload -U colors && colors
 
-PROMPT='$(clock) $(user_host) $(get_pwd) $(git_prompt_info) $(virtualenv)
+PROMPT='$(clock) $(user_host) $(get_pwd) $(git_prompt_info) $(condaenv)
 %{$reset_color%}→ '
 
 # something I found to update the clock
@@ -26,10 +26,8 @@ function user_host() {
   echo $me
 }
 
-function virtualenv() {
-  if {echo $fpath | grep -q "plugins/virtualenv"}; then
-    echo "%{$fg[magenta]%}$(virtualenv_prompt_info)%{$reset_color%}"
-  fi
+function condaenv() {
+  echo "%{$fg[magenta]%}$CONDA_DEFAULT_ENV%{$reset_color%}"
 }
 
 fuction git_prompt_info() {

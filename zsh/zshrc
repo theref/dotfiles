@@ -36,20 +36,14 @@ if [[ -d $HOME/Desktop/gambit ]]; then
     PATH=$PATH:$HOME/Desktop/gambit
 fi
 
+if [[ -d $HOME/anaconda3 ]]; then
+    export PATH=$PATH:$HOME/anaconda3/bin:$PATH
+fi
+
 if [[ -d $HOME/Projects/sage-game-theory ]]; then
     export PATH=$PATH:~/Projects/sage-game-theory
 fi
 
-if which pyenv > /dev/null; then
-	eval "$(pyenv init -)";
-fi
-
-if which pyenv-virtualenv-init > /dev/null; then
-	eval "$(pyenv virtualenv-init -)";
-fi
-
-alias python=/Users/James/anaconda3/bin/python
-alias pip=/Users/James/anaconda3/bin/pip
 
 setopt AUTO_CD
 
