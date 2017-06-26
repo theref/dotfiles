@@ -52,9 +52,10 @@ else
 fi
 
 
-PS1='$(user_host) $(get_pwd) $(git_prompt_info) $(condaenv)
+PS1='$(user_host) $(get_pwd) $(git_color) $(git_branch) $(condaenv)
 → '
 export PS1
+
 
 function get_pwd() {
   echo "${BOLD}${YELLOW}${PWD/$HOME/~}${RESET}"
@@ -69,16 +70,33 @@ function user_host() {
   echo $me
 }
 
+
 function condaenv() {
   echo "${BOLD}${MAGENTA}$CONDA_DEFAULT_ENV${RESET}"
 }
 
-function git_prompt_info() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo "${BOLD}${GREEN}$(parse_git_dirty)[${ref#refs/heads/}]${RESET}"
+
+function git_color() {
+  if [[ "$(git status 2> /dev/null)" =~ "nothing to commit" ]]; then
+    echo "${GREEN}"
+  else
+    echo "${RED}"
+  fi
 }
 
-function parse_git_dirty() {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit
-(working directory clean)" ]] && echo "${BOLD}${RED}"
+
+function git_branch() {
+  local git_status="$(git status 2> /dev/null)"
+  local on_branch="On branch ([^${IFS}]*)"
+  local on_commit="HEAD detached at ([^${IFS}]*)"
+
+  if [[ $git_status =~ $on_branch ]]; then
+    local branch=${BASH_REMATCH[1]}
+    echo "($branch) ${RESET}"
+  elif [[ $git_status =~ $on_commit ]]; then
+    local commit=${BASH_REMATCH[1]}
+    echo "($commit) ${RESET}"
+  fi
 }
+
+
