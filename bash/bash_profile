@@ -100,3 +100,6 @@ function git_branch() {
 }
 
 
+
+# added by Anaconda3 4.4.0 installer
+export PATH="/Users/jamescampbell/anaconda3/bin:$PATH"
