@@ -14,12 +14,7 @@ ln -s ~/dotfiles/xonsh/xonshrc.py ~/.xonshrc
 rm ~/.local_settings.xsh
 cp ~/dotfiles/xonsh/local_settings.xsh.example ~/local_settings.xsh
 
-# for mac
-# install homebrew
-# brew tap caskroom/versions
-# brew cask install sublime-text
-# add sublime text to path
-
-# for linux
-# 
-# need to log out, then log in to see all changes
+rm '~/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings'
+rm '~/Library/Application Support/Sublime Text 3/Packages/User/Python.sublime-settings'
+ln -s ~/dotfiles/sublime/Preferences.sublime-settings '~/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings'
+ln -s ~/dotfiles/sublime/Python.sublime-settings '~/Library/Application Support/Sublime Text 3/Packages/User/Python.sublime-settings'

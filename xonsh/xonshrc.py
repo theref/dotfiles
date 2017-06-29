@@ -50,12 +50,11 @@ platform_specific_shortcuts = {
 branch_colour = '{branch_color}'.strip('BOLD_')
 
 prompt = (
-    '{NO_COLOR}{YELLOW}{user} on {hostname}{BLUE} {cwd} '
-    '{branch_color}{curr_branch}\n'
-    '{CYAN}➜  {NO_COLOR}'
+    '{NO_COLOR}{YELLOW}{user} on {hostname}{BLUE} {cwd} \n'
+    '{CYAN}{prompt_end} ➜  {NO_COLOR}'
 )
 
-right_prompt = ('{PURPLE}{env_name}')
+right_prompt = ('{PURPLE}{env_name} {gitstatus}')
 
 
 def path_strings(paths):
