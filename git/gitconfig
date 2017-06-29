@@ -1,6 +1,7 @@
 [user]
 	name = James Campbell
 	email = james.campbell@tanti.org.uk
+	signingkey = 9857B95A
 [core]
     mergeoptions = --no-edit
 	editor = subl -n -w
@@ -18,3 +19,5 @@
 	amend = git add .; git commit --amend
 [color]
 	ui = true
+[commit]
+	gpgsign = true
