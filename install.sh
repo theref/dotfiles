@@ -14,6 +14,7 @@ ln -s ~/dotfiles/xonsh/xonshrc.py ~/.xonshrc
 rm ~/.local_settings.xsh
 cp ~/dotfiles/xonsh/local_settings.xsh.example ~/local_settings.xsh
 
+
 rm '~/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings'
 rm '~/Library/Application Support/Sublime Text 3/Packages/User/Python.sublime-settings'
 ln -s ~/dotfiles/sublime/Preferences.sublime-settings '~/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings'

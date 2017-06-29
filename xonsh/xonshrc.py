@@ -57,6 +57,7 @@ prompt = (
 right_prompt = ('{PURPLE}{env_name} {gitstatus}')
 
 
+
 def path_strings(paths):
     """
     A function to generate a list of strings representing paths.
