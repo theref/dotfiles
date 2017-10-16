@@ -89,7 +89,7 @@ aliases.update(local_settings.shortcuts)
 
 # xontrib load autoxsh
 xontrib load coreutils
-# xontrib load xonda
+xontrib load xonda
 
 try:
     for key in local_settings.SSH_KEYS:

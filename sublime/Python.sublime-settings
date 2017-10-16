@@ -1,8 +1,20 @@
 {
+	"ensure_newline_at_eof_on_save": false,
 	"extensions":
 	[
 		"xsh",
 		"xonshrc"
 	],
-	"rulers": [ 79 ]
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		".egg*"
+	],
+	"rulers":
+	[
+		79
+	]
 }
