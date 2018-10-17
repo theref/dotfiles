@@ -16,5 +16,5 @@ paths = [
 #     'gst': ['git', 'status']
 # }
 shortcuts = {}
-
-start_folder = ~
+SSH_KEYS = []
+start_folder = '~'

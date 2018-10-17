@@ -1,6 +1,7 @@
 import sys
-import subprocess
 from pathlib import Path
+sys.path.append(str(Path.home()))
+import subprocess
 import local_settings
 
 paths = {

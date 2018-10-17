@@ -1,10 +1,10 @@
 [user]
 	name = James Campbell
 	email = james.campbell@tanti.org.uk
-	signingkey = 9857B95A
+	signingkey = 8B029FB2
 [core]
     mergeoptions = --no-edit
-	editor = subl -n -w
+	editor = code -n -w
 	trustExitCode = true
 [push]
 	default = simple
