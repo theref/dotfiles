@@ -1,0 +1,11 @@
+{
+    "explorer.confirmDelete": false,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "python.showStartPage": false,
+    "editor.fontFamily": "'SauceCodePro Nerd Font Mono','Source Code Pro'",
+    "terminal.integrated.fontFamily": "'SauceCodePro Nerd Font Mono','Source Code Pro'",
+    "editor.fontLigatures": null,
+    "workbench.colorTheme": "Nord"
+}
